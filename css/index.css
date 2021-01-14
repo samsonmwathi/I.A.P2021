@@ -1,0 +1,121 @@
+html{
+	margin:auto;
+	padding: 0;
+	outline: none;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+	word-spacing: 2px;
+	font-weight: 400;
+	text-decoration: none solid rgb(255, 255, 255);
+	font-style: bold;
+	font-variant: small-caps;
+    text-transform: none;
+    background-image: url(../images/clouds.png);
+    background-size: cover;
+    background-color:#c7d0d2a2 ;	
+
+}
+
+.menutitle{
+	
+	height: 49px;
+	width: 90%;
+    margin-left: 5%;
+    border-radius: 15px;
+    text-align: center;
+	color: rgb(255, 255, 255);
+	background-color: #738cdc79;
+    background-image: linear-gradient(315deg, #738cdccc 0%, #48c2eba9 74%);
+    font-size: 35px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+.logo{
+    background-color: #738cdc79;
+    background-image: linear-gradient(315deg, #738cdccc 0%, #48c2eba9 74%);
+    border: none;
+	text-decoration: none;
+    color:white;
+    font-size: 19px;
+    line-height: 49px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    padding:7px;
+    margin-top: 0px;
+	margin-left:28px;
+    border-radius:14px;
+
+    
+}
+h1{
+	
+    height: 35px;
+    max-width: 200px;
+    margin-left: 71%;
+    border-radius: 15px;
+    text-align: center;
+	color: rgb(255, 255, 255);
+	background-color: #738cdc79;
+    background-image: linear-gradient(315deg, #738cdccc 0%, #48c2eba9 74%);
+    font-size: 28px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+.dp{
+    border-radius: 500px;
+    width:170px;
+    height:170px;
+    justify-self: center;
+    margin-left:80em;
+    
+}
+a{
+	color: royalblue;
+    font-size: 19px;
+    line-height: 49px;
+	font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+
+.content{
+    padding-top: 49px;
+    padding-bottom: 49px;
+    border-radius: 15px;
+	position: inherit;
+	height: 70%;
+	margin-top: 49px;
+	width: 90%;
+	margin-left: 5%;
+	color: rgb(70, 68, 68);
+	background-color: #738cdc79;
+    background-image: linear-gradient(315deg, #738cdccc 0%, #48c2eba9 74%);
+    font-size: 35px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+	text-align:center;
+	
+}
+.pic{
+    margin-left: 7px;
+    margin-top :7px;
+	position: inherit;
+	height:400px;
+	width:400px;
+	box-sizing: border-box;
+	border-radius: 15px;
+}
+
+footer{
+    text-align: center;
+	align-content: center;
+	background-color: black;
+}
+footer a{
+	text-align: center;
+	text-decoration: none;
+}
+h2{
+	color: white;
+}
