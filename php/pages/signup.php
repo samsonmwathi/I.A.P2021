@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
 <body>
     <header class ="header"></header>
     <div class="container">
-        <form action="signup_submit" methods="post" >
+        <form action="../classes/signup_controller.php" method="POST" >
             <h1 class = "title">Signup</h1>
             <label for="fullname">fullname</label><br>
             <input name="fullname" type="text" placeholder="fullname">
@@ -23,7 +24,7 @@
             <label for="password">password</label><br>
             <input name="password" type="password" placeholder="password">
             <br><br>
-            <button method="post" type="submit" value="signup">signup</button>
+            <button type="submit" id="sub-submit" value="sub-submit">signup</button>
             <p>or <a href="/html/login.html">login</a> instead</p>
 
         </form>
