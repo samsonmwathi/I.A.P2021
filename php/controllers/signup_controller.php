@@ -1,81 +1,42 @@
 <?php
-
-    include "user.php"; //to make sure we can construct a new user
+    session_start();
+    include "../models/user.php"; //to make sure we can construct a new user
     //default variables
         $name = "";
         $email= "";
         $city = "";
         $password = "";
     //check if the submit button was clicked  
-    print_r($_POST);  
-    if(isset($_POST['sub-submit'])){
-        $name=$_POST['fullname'];
-        $email=$_POST['email'];;
-        $city=$_POST['city of residence'];
-        $password=$_POST['password'];
+    //print_r($_POST);  
+    if(isset($_POST)){
+        if(empty($_POST['fullname']||$_POST['city']&&$_POST['email']||$_POST['password'])){
+            $bottom_error="please fill in the form";
+            include "../views/signup.php";
+        }
+        if(empty($_POST['fullname']||$_POST['city'])){
+            $middle_error = "fill both fullname and city";
+            include "../views/signup.php";
+        }else if(empty($_POST['email']||$_POST['password'])){
+            $bottom_error="fill both email and password";
+            include "../views/signup.php";
+        }else{
+        //set the variables to be the same as the user input 
+            $name=$_POST['fullname'];
+            $email=$_POST['email'];;
+            $city=$_POST['city'];
+            $password=password_hash($_POST['password'],PASSWORD_DEFAULT);
         //create a user to pass the variables in using oop
-        $person = new User($name,$email,$city,$password);
-        echo "initialized";
+            include_once "../models/pdo.php";
+            $person = new User($name,$email,$city,$password);
+            $person->register($pdo);
+        }
     }else if(!isset($_POST['sub-submit'])){
-        echo "submission error";
-        exit();
+        $sign_error = "submission error"."<br>";
+        include "../views/signup.php";
     }
+        //print_r($person->check());
+
     
-    //set the variables to be the same as the user input 
-    $person->setFullname($name);
-    $person->getFullname();
-    $person->setEmail($email);
-    $person->setCity($city);
-    $person->setPassword($password);
-    print_r($person->check());
-    //PDO constants becasue they donot change
-    define('dsn',"mysql:host=localhost;dbname=mega");
-    define('user','root');
-    define ('password','');
-    $options = [PDO ::ATTR_EMULATE_PREPARES => false,PDO::FETCH_ASSOC,PDO::ATTR_PERSISTENT=>true,PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION];
-    //$pdo = new PDO("mysql:host=localhost;dbname=mega",'root',"",$options); 
-
-    //our PDO 
-    try{
-        $pdo = new PDO(dsn,user,password,$options);
-    //echo to check for the actual connection to the database
-        echo " 1st pdo connected successfully";
-    }catch(PDOException $ex){
-        echo $ex->getMessage();
-    } 
-    try{
-         $person->register($pdo);
-     }catch(PDOException $ex){
-         echo $ex->getMessage();
-     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -105,14 +66,11 @@
     //     echo"oh no";
     // }
    
-
     //  $host = "localhost";
     //  $user="root";
     //  $password="";
     //  $dbName="mega";
         
-
-    
     // $connected = new PDO( "mysql:host=$host; $dbName", $user,$password);
     // // $connected->parent::connect();
     // try{
